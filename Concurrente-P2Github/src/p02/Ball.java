@@ -2,6 +2,7 @@ package p02;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+
 //TODO Transform the code to be used safely in a concurrent context.  
 public class Ball {
        //TODO  Find an archive named Ball.png 
@@ -41,6 +42,7 @@ public class Ball {
 		reflect();
 		
 		//TODO Check postcondition
+		this.postCondition(x, y, v);
 	}
 
 	private void reflect() {
@@ -84,6 +86,16 @@ public class Ball {
 
 	public Image getImage() {
 		return image;
+	}
+	
+	private void postCondition(double x2,double y2, double v2) {
+		//no se salga del tablero
+		assert x2 < Board.RIGHTBOARD;
+		assert x2 > Board.LEFTBOARD;
+		assert y2 < Board.TOPBOARD;
+		assert y2 > Board.BOTTOMBOARD;
+		//para que no se pare nunca el movimiento
+		if(v!=5.0) this.v=5.0;
 	}
 
 }
