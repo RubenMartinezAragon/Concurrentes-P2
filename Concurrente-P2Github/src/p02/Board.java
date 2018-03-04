@@ -19,7 +19,7 @@ public class Board extends JPanel {
 	public Board() {
 		setFocusable(true);
 		setBackground(Color.BLACK);
-		setDoubleBuffered(true);
+		setDoubleBuffered(true);	
 	}
 
 	public void paint(Graphics g) {
